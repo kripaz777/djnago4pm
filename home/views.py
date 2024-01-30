@@ -5,12 +5,14 @@ def home(request):
     views = {}
     views['about_me'] = AboutMe.objects.all()
     views['services'] = Service.objects.all()
-    views['feddbacks'] = Feedback.objects.all()
+    views['feedbacks'] = Feedback.objects.all()
     return render(request,'index.html',views)
 
 
 def about(request):
-    return render(request,'about.html')
+    views = {}
+    views['feedbacks'] = Feedback.objects.all()
+    return render(request,'about.html',views)
 
 def contact(request):
     return render(request,'contact.html')
@@ -24,4 +26,5 @@ def price(request):
 def services(request):
     views = {}
     views['services'] = Service.objects.all()
+    views['feedbacks'] = Feedback.objects.all()
     return render(request,'services.html',views)
