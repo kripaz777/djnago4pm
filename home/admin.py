@@ -4,3 +4,5 @@ from .models import *
 admin.site.register(Service)
 admin.site.register(Feedback)
 admin.site.register(AboutMe)
+admin.site.register(Plan)
+admin.site.register(Contact)

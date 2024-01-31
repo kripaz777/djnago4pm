@@ -6,6 +6,7 @@ def home(request):
     views['about_me'] = AboutMe.objects.all()
     views['services'] = Service.objects.all()
     views['feedbacks'] = Feedback.objects.all()
+    views['plans'] = Plan.objects.all()
     return render(request,'index.html',views)
 
 
@@ -15,6 +16,17 @@ def about(request):
     return render(request,'about.html',views)
 
 def contact(request):
+    if request.method == 'POST':
+        na = request.POST['name']
+        em = request.POST['email']
+        sub = request.POST['subject']
+        mes = request.POST['message']
+        Contact.objects.create(
+            name = na,
+            email = em,
+            subject = sub,
+            message = mes
+        ).save()
     return render(request,'contact.html')
 
 def portfolio(request):
